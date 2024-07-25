@@ -8,20 +8,39 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <label for=""></label>">
-    <input id= typingAreatype="text" value="SeCret1">
+    <label for="">Enter your Input</label>">
+    <input id= typingAreatype type="text" value="SeCret1" onkeyup="checkLength()">
+    <button onclick="checkLength()">CheckLength</button>
     
     <div id="msgbox"> 
-        <div id="msgUC"></div>
-        <div id="msgLC"></div>
-        <div id="msgSC"></div>
-        <div id="msgNum"></div>
-        <div id="msgLength"></div>
+        <div id="msgUC">UC</div>
+        <div id="msgLC">LC</div>
+        <div id="msgSC">SC</div>
+        <div id="msgNum">Num</div>
+        <div id="msgLength">Length</div>
 
     </div>
 
     <script>
         // Check to see if value has a special character + green msgSC if yes, else red
+        function checkSC() {
+            var typingArea = document.getElementById("typingArea");
+            var regexSC = new RegExp('[!@#$%^&*()]');
+
+            var msgSC = document.getElementById('msgSC');
+
+            if(typingAreaValue.match(regexLC)) {
+                msgSC.style.color = 'green';
+            }else {
+                msgSC.style.color = 'red';
+            }
+        }
+        // add typingArea keyup event listerner to run checkSC
+        document.getElementById('typingArea').addEventListener('keyup', checkSC);
+
+
+
+        // check to see if value has an lower case character + green msgLC if yes, else red
         
         function checkLC() {
             var typingArea = document.getElementById("typingArea");
@@ -35,7 +54,7 @@
                 msgLC.style.color = 'red';
             }
         }
-        // add typingArea keyup event listerner to run checkLCn
+        // add typingArea keyup event listerner to run checkLC
         document.getElementById('typingArea').addEventListener('keyup', checkLC);
 
             // get the value from the input 
