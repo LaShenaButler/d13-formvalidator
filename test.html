@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-</head>
 <body>
-    <input type="text" name="" id="age" value="18">
-    <button onclick="checkAge()">CheckAge</button>
 
-    <div id="msgAge" Class="h-96 w-96 text-center text-3xl">Age Checker</div>
+    <br><br><br><br>
+
+
+        <input id="pswdInputBox">
+        <button onclick="checkPswd()">Check Password</button>
+
+        <div id="msgAreaPswdLen">Password Checker</div>
+        <div id="msgAreaPswdNum">Password Number</div>
+        <div id="msgAreaPswdLC">Password LC</div>
 
     <script>
-        function checkAge() {
-            var msgAge = document.getElementById('msgArea');
-            var age = document.getElementById('age').value;
-            if(age >= 18) {
-                msgAge.innerHTML = 'you are old enough';
+        function checkLC(){
+            var LC = document.getElementById('LCInputBox').value;
+            // check to see if LC is in password 
+            var msgAreaPswdLC = document.getElementById('msgAreaPswdLC');
+            var requiredLC = /[a-z]/;
+            if(pswd.match(requiredLC)>= requiredLC) {
+                msgAreaPswdLC.innerHTML = 'Your password has an lc';
             }else {
-                msgAge.innerHTML = 'you are too young';
+                msgAreaPswdLC.innerHTML = 'Your password does not have an lc';
             }
-        }
+
+        }  
+
     </script>
+
+<script>
+    function checkNum(){
+        var Number = document.getElementById('NumberInputBox').value;
+        // check to see if password has a number
+        var msgAreaPswdNum = document.getElementById('msgAreaPswdNum');
+        var requiredNum = /[0-9]/;
+        if(pswd.match(requiredNum)>= requiredNum) {
+            msgAreaPswdNum.innerHTML = 'Your password has an number';
+        }else {
+            msgAreaPswdNum.innerHTML = 'Your password does not have a number';
+        }
+
+    }  
+
+</script>
+
+
 </body>
+</html> 
